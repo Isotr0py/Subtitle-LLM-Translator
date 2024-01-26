@@ -4,7 +4,7 @@
 - 使用[Sakura-13B-Galgame](https://github.com/SakuraLLM/Sakura-13B-Galgame)模型对字幕文件进行翻译
 
 ## 准备
-- **如果你只有mp3、mp4等音频文件，可先用[Faster-Whisper-Colab](https://colab.research.google.com/github/Isotr0py/Sakura-Subtitle/blob/main/whisper/Faster-Whisper-Colab.ipynb)进行字幕转录**
+- **如果你只有mp3、mp4等音频文件，可先用[Faster-Whisper-Colab](https://colab.research.google.com/github/Isotr0py/Subtitle-LLM-translator/blob/main/whisper/Faster-Whisper-Colab.ipynb)进行字幕转录**
 - **按照[Sakura模型部署教程](https://github.com/SakuraLLM/Sakura-13B-Galgame/wiki)完成API部署，并在`config.yaml`的`endpoint`填入你的API地址**
 
 ## 运行
