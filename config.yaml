@@ -1,0 +1,15 @@
+# Sakura API 地址
+endpoint: https://a77c-35-229-102-81.ngrok-free.app
+
+# 工作目录
+workspace: sample_project/
+
+generate_config:
+  temperature: 0.1
+  top_p: 0.3
+  max_tokens: 512
+  frequency_penalty: 0.3
+  extra_query:
+    do_sample: False
+    num_beams: 5
+    repetition_penalty: 0.5
