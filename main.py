@@ -25,31 +25,34 @@ def translate_file(file):
     if len(sub) == 0:
         return
 
+    # 断点检查
     for i in range(len(sub)):
         idx = i
         if not sub.contents[i]["cn"]:
             break
-        if idx == len(sub) - 1:
-            progress_bar.update(1)
-            return
         progress_bar.update(1)
 
     batch_size = 5  # 每次翻译行数
-    for i in range(idx, len(sub), batch_size):
-        text_list = [content["jp"] for content in sub.contents[i : i + batch_size]]
-        input_text = "\n".join(text_list)
-        print(input_text + "\n")
-        results = translator.translate(input_text)
-        if len(text_list) != len(results):
-            p = re.compile("「(.*?)」", re.S)
-            results = [
-                re.findall(p, "".join(translator.translate(text)))[0]
-                for text in list(map(lambda x: f"「{x.strip()}」\n", text_list))
-            ]
-        for j in range(len(results)):
-            sub.contents[i + j]["cn"] = results[j]
-        sub = sub.to_json(cache_file)
-        progress_bar.update(batch_size)
+    if idx != len(sub) - 1:
+        for i in range(idx, len(sub), batch_size):
+            # 整段翻译
+            text_list = [content["jp"] for content in sub.contents[i : i + batch_size]]
+            input_text = "\n".join(text_list)
+            print(input_text + "\n")
+            results = translator.translate(input_text)
+            # 输出漏行时，逐行翻译
+            if len(text_list) != len(results):
+                p = re.compile("「(.*?)」", re.S)
+                results = [
+                    re.findall(p, "".join(translator.translate(text)))[0]
+                    for text in list(map(lambda x: f"「{x.strip()}」\n", text_list))
+                ]
+            # 写入结果
+            for j in range(len(results)):
+                sub.contents[i + j]["cn"] = results[j]
+            sub = sub.to_json(cache_file)
+            progress_bar.update(batch_size)
+    # 输出翻译后字幕
     sub.to_file(output_file)
 
 
