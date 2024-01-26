@@ -8,13 +8,12 @@
 - **按照[Sakura模型部署教程](https://github.com/SakuraLLM/Sakura-13B-Galgame/wiki)完成API部署，并在`config.yaml`的`endpoint`填入你的API地址**
 
 ## 运行
-- 安装库
+安装库：
 ```
 pip install -r requirements.txt
 ```
-- 将需要翻译的字幕文件放入`sample_project/inputs`
-- 运行`main.py`:
+将需要翻译的字幕文件放入`sample_project/inputs`，并运行`main.py`:
 ```
 python main.py
 ```
-- 翻译完成的字幕将输出于`sample_project/outputs`目录
+翻译完成的字幕将输出于`sample_project/outputs`目录。
