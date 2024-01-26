@@ -1,9 +1,8 @@
 # Sakura API 地址
-endpoint: https://a77c-35-229-102-81.ngrok-free.app
+endpoint: http://127.0.0.1:5000
 
 # 工作目录
 workspace: sample_project/
-
 
 generate_config:
   temperature: 0.1
