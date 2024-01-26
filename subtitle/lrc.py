@@ -3,9 +3,9 @@ import re
 from .base import SubBase
 
 
-class SakuraLrc(SubBase):
+class Lrc(SubBase):
     def __repr__(self) -> str:
-        return f"SakuraLrc('{self.name}')"
+        return f"Lrc('{self.name}')"
 
     def _load_contents(self, lrc_file):
         header_idx = 1 if self.header else 0

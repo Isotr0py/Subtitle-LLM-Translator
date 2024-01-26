@@ -3,9 +3,9 @@ import re
 from .base import SubBase
 
 
-class SakuraWebVTT(SubBase):
+class WebVTT(SubBase):
     def __repr__(self) -> str:
-        return f"SakuraWebVTT('{self.name}')"
+        return f"WebVTT('{self.name}')"
 
     def _load_contents(self, vtt_file):
         with open(vtt_file, "r", encoding="utf-8") as f:

@@ -6,6 +6,9 @@ from openai import OpenAI
 
 
 class Translator:
+    """
+        SakuraLLM Translator
+    """
     def __init__(self, endpoint, workspace, generate_config):
         self.client = OpenAI(api_key="114514", base_url=endpoint + "/v1")
         self.workspace = Path(workspace)

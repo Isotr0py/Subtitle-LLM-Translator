@@ -4,7 +4,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
-from subtitle import SakuraAutoSub, Translator
+from subtitle import AutoSub, Translator
 
 
 def translate_file(file):
@@ -12,7 +12,7 @@ def translate_file(file):
     output_format = Path(file).suffix
     output_file = output_dir.joinpath(f"{name}{output_format}")
     cache_file = cache_dir.joinpath(f"{name}{output_format}.json")
-    sub = SakuraAutoSub.from_file(file)
+    sub = AutoSub.from_file(file)
     progress_bar = tqdm(total=len(sub), desc=f"{sub}")
     if not sub.header:
         sub.header = "Translated by SakuraLLM model"
