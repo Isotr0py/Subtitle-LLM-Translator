@@ -17,3 +17,6 @@ pip install -r requirements.txt
 python main.py
 ```
 翻译完成的字幕将输出于`sample_project/outputs`目录。
+
+## 致谢
+- [SakuraLLM/Sakura-13B-Galgame](https://github.com/SakuraLLM/Sakura-13B-Galgame)
