@@ -34,8 +34,9 @@ def translate_file(file):
             return
         progress_bar.update(1)
 
-    for i in range(idx, len(sub), 5):
-        text_list = [content["jp"] for content in sub.contents[i : i + 5]]
+    batch_size = 5  # 每次翻译行数
+    for i in range(idx, len(sub), batch_size):
+        text_list = [content["jp"] for content in sub.contents[i : i + batch_size]]
         input_text = "\n".join(text_list)
         print(input_text + "\n")
         results = translator.translate(input_text)
@@ -48,7 +49,7 @@ def translate_file(file):
         for j in range(len(results)):
             sub.contents[i + j]["cn"] = results[j]
         sub = sub.to_json(cache_file)
-        progress_bar.update(5)
+        progress_bar.update(batch_size)
     sub.to_file(output_file)
 
 
